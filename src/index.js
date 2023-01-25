@@ -1,10 +1,15 @@
 import "./styles.css";
+var date = document.getElementById("date");
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-</div>
-`;
+document.getElementById("btn").addEventListener("click", () => {
+  var status = true;
+  var sum = 0;
+  const dateArr = date.value.split("").filter((item) => item !== "-");
+  console.log(dateArr);
+  for (let i = 0; i < dateArr.length; i++) {
+    if (dateArr[i] != dateArr[dateArr.length - i - 1]) {
+      return (document.getElementById("text").innerText = "not a palindrome");
+    }
+  }
+  document.getElementById("text").innerText = "is a palindrome";
+});
